@@ -1,13 +1,9 @@
 import { withStyles } from '@mui/styles';
 import React, { Component } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import styles from '../../containers/Taskboard/style';
+import TaskItem from '../../components/TaskItem'
 
 class TaskList extends Component {
   render() {
@@ -20,27 +16,8 @@ class TaskList extends Component {
               </Box>
               <div className={classes.wrapperListTask}>
                 {tasks.map(task => {
-                  const {title} = task;//destrucring
                   return (
-                    <Card key={task.id} className={classes.card}>
-                      <CardContent>
-                        <Grid container justify="space-between">
-                          <Grid item md={8}>
-                            <Typography component="h2">
-                              {task.title}
-                            </Typography>
-                          </Grid>
-                          <Grid item md={4}>
-                            {
-                              status.label
-                            }
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                      <CardActions>
-                        <Button size="small"/>
-                      </CardActions>
-                    </Card>
+                    <TaskItem task={task} status={status} key={task.id}/>
                   )
                 })}
               </div>

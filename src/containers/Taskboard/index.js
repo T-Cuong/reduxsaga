@@ -4,6 +4,11 @@ import styles  from './style';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import Grid from '@mui/material/Grid';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import { STATUSES } from '../../constants';
 import TaskList from "./../../components/TaskList"
@@ -33,9 +38,9 @@ class TaskBoard extends Component{
     let xhtml = null;
     xhtml = (
       <Grid container spacing={2}>
-        {STATUSES.map((status, index) => {
+        {STATUSES.map(status => {
           const taskFiltered = listTask.filter(task=>task.status === status.value);
-          return <TaskList tasks={taskFiltered} status={status}/>
+          return <TaskList key={status.value} tasks={taskFiltered} status={status}/>
         })}
       </Grid>
     )
