@@ -1,0 +1,2 @@
+containers là nơi sẽ connect tới redux, lấy các state và dispatch các action 
+components thì để hiển thị trên UI
